@@ -26,10 +26,29 @@ class DoublyLinkedList {
     this.length++;
     return this;
   }
+
+  pop() {
+    if (!this.head) return undefined;
+    var poppedNode = this.tail;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.tail = poppedNode.prev;
+      this.tail.next = null;
+      poppedNode.prev = null;
+    }
+    this.length--;
+    return poppedNode;
+  }
 }
 
 let list = new DoublyLinkedList();
 
-list.push(50);
+list.push(10);
+list.push(20);
+list.push(30);
 
-console.log(list);
+console.log(list.pop());
+
+// console.log(list);
