@@ -38,21 +38,23 @@ class BinarySearchTree {
 
   //   첫번째 1
 
-  find(value) {
-    if (this.root === null) return false;
-    var current = this.root,
-      found = false;
-    while (current && !found) {
-      if (value < current.value) {
-        current = current.left;
-      } else if (value > current.value) {
+  find(val) {
+    if (!this.root) return;
+    let current = this.root;
+    while (true) {
+      if (val === current.value) return current;
+      if (val > current.value) {
+        if (!current.right) {
+          return undefined;
+        }
         current = current.right;
-      } else {
-        found = true;
+      } else if (val < current.value) {
+        if (!current.left) {
+          return undefined;
+        }
+        current = current.left;
       }
     }
-    if (!found) return undefined;
-    return current;
   }
 
   //   두번쨰 2
