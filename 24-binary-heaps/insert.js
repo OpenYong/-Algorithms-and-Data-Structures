@@ -9,6 +9,7 @@ class MaxBinaryHeap {
     let childrenIdx = this.values.length - 1; // 추가된 요소의 index
     const childrenEl = this.values[childrenIdx];
 
+    // 버블 업
     while (childrenIdx > 0) {
       let parentIdx = Math.floor((childrenIdx - 1) / 2);
       const parentEl = this.values[parentIdx];
