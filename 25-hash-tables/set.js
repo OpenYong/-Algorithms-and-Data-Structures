@@ -13,4 +13,19 @@ class HashTable {
     }
     return total;
   }
+
+  set(key, value) {
+    let index = this._hash(key);
+    if (!this.keyMap[index]) {
+      this.keyMap[index] = [];
+    }
+    this.keyMap[index].push([key, value]);
+    return index;
+  }
 }
+
+let hashTb = new HashTable();
+console.log(hashTb.set("yong", "lee"));
+console.log(hashTb.set("yong", "lee"));
+console.log(hashTb.set("hello", "world"));
+console.log(hashTb);
